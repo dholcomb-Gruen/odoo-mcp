@@ -1,0 +1,51 @@
+import requests
+import json
+
+url = "https://gruen-systems.com"
+db = "v18.gruen-systems.com"
+username = "d.holcomb@gruen-systems.com"
+password = "your_new_password"
+
+payload = json.dumps({
+    "jsonrpc": "2.0",
+    "method": "call",
+    "id": 1,
+    "params": {
+        "db": db,
+        "login": username,
+        "password": password
+    }
+})
+
+response = requests.post(
+    f"{url}/web/session/authenticate",
+    data=payload,
+    headers={"Content-Type": "application/json"}
+)
+
+print("Status code:", response.status_code)
+print("Response:", response.text[:500])import requests
+
+url = "https://gruen-systems.com"
+db = "v18.gruen-systems.com"
+username = "d.holcomb@gruen-systems.com"
+password = "marcus6619"
+
+payload = {
+    "jsonrpc": "2.0",
+    "method": "call",
+    "params": {
+        "db": db,
+        "login": username,
+        "password": password
+    }
+}
+
+response = requests.post(
+    f"{url}/web/session/authenticate",
+    json=payload,
+    headers={"Content-Type": "application/json"}
+)
+
+print("Status code:", response.status_code)
+print("Response:", response.text[:500])
